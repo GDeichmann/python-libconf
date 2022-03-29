@@ -249,7 +249,7 @@ class TokenStream:
             m = re.match(r'@include "(.*)"(?:,|;)?$', line.strip())
             if m:
                 tokens.extend(tokenizer.tokenize(''.join(lines)))
-                lines = [re.sub(r'\S', ' ', line)]
+                lines = [re.sub(r'@include "(.*)"', ' ', line)]
 
                 includefilename = decode_escapes(m.group(1))
                 includefilename = os.path.join(includedir, includefilename)
