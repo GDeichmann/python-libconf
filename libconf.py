@@ -246,7 +246,7 @@ class TokenStream:
         lines = []
         tokens = []
         for line in f:
-            m = re.match(r'@include "(.*)"$', line.strip())
+            m = re.match(r'@include "(.*)"(?:,|;)?$', line.strip())
             if m:
                 tokens.extend(tokenizer.tokenize(''.join(lines)))
                 lines = [re.sub(r'\S', ' ', line)]
